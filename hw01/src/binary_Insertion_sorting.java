@@ -23,8 +23,8 @@ public class binary_Insertion_sorting {
         for(int i=0; i<file_size-1; i++){
             bufferedWriter.write(array[i]+" ");
         }
-        bufferedWriter.write(array[file_size-1]);
-
+        bufferedWriter.write(array[file_size-1]+"");
+        bufferedWriter.flush();
         bufferedReader.close();
         bufferedWriter.close();
     }

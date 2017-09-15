@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class merge_sorting {
-    static final int file_size = 100000;
+    static final int file_size = 10000000;
     static int[] array = new int[file_size];
     static int[] helper = new int[file_size];
     public static void main(String[] args) throws IOException {
@@ -24,7 +24,8 @@ public class merge_sorting {
         for(int i=0; i<file_size-1; i++){
             bufferedWriter.write(array[i]+" ");
         }
-        bufferedWriter.write(array[file_size-1]);
+        bufferedWriter.write(array[file_size-1]+"");
+        bufferedWriter.flush();
         bufferedReader.close();
         bufferedWriter.close();
     }
