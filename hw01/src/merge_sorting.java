@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class merge_sorting {
-    static final int file_size = 10000000;
+    static final int file_size = 10000;
     static int[] array = new int[file_size];
     static int[] helper = new int[file_size];
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Random/"+file_size+".txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Best/"+file_size+".txt"));
         int index = 0;
         String line = null;
         while((line = bufferedReader.readLine()) != null){
@@ -21,7 +21,7 @@ public class merge_sorting {
         long start = System.currentTimeMillis();
         mergeSort(0, file_size-1);
         long end = System.currentTimeMillis();
-        System.out.println("실행시간 : "+(end - start) / 1000.0 +"초");
+        System.out.println("실행시간 : "+(end - start)+"초");
     }
 
     public static void mergeSort(int left, int right){
