@@ -4,7 +4,8 @@ import java.util.StringTokenizer;
 public class Insertion_sorting {
     static final int file_size = 10000;
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Worst/"+file_size+".txt"));
+//        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Best/"+file_size+".txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("input.txt"));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("201302482_output.txt"));
         int[] array = new int[file_size];
         int index = 0;
