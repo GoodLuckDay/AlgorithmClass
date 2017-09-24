@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class QuickSort {
-    static final int file_size = 50000;
+    static final int file_size = 100000;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Worst/"+file_size+".txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Best/"+file_size+".txt"));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./201302482_quick"));
         int[] array = new int[file_size];
         int count = 0;
@@ -17,14 +17,16 @@ public class QuickSort {
                 array[count++] = Integer.parseInt(stringTokenizer.nextToken());
             }
         }
-
+        long start = System.currentTimeMillis();
         quickSort(array, 0, file_size-1);
-
+        long end = System.currentTimeMillis();
         for(int i=0; i<file_size-1; i++){
             bufferedWriter.write(array[i]+" ");
         }
         bufferedWriter.write(array[file_size-1]+"");
         bufferedWriter.flush();
+
+        System.out.println("실행 시간 : "+(end - start));
     }
 
     public static void quickSort(int[] A, int left, int right){
