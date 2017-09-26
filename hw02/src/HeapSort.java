@@ -68,15 +68,28 @@ public class HeapSort {
 
     public static void insert(Node[] nodes, Node x){
         nodes[++count] = x;
-        int parent = count/2;
-        int child = count;
+        reverseHeappy(nodes, x, count);
+
+    }
+
+    public static Node increase_key(Node[] nodes, int x, int k){
+        Node increase_Node = nodes[x].values < k ? nodes[x] : null;
+        if(increase_Node !=null){
+            increase_Node.values = k;
+            reverseHeappy(nodes, increase_Node, x);
+        }
+        return increase_Node;
+    }
+
+    private static void reverseHeappy(Node[] nodes, Node x, int index) {
+        int parent = index/2;
+        int child = index;
         while(parent > 0 && nodes[parent].values < x.values){
             nodes[child] = nodes[parent];
             child = parent;
             parent /=2;
         }
         nodes[child] = x;
-
     }
 
     public static Node max(Node[] nodes)
@@ -92,15 +105,6 @@ public class HeapSort {
             heappfy(nodes, 1);
         }
         return maxNode;
-    }
-    public static Node increase_key(Node[] nodes, int x, int k){
-        Node increase_Node = nodes[x].values < k ? nodes[x] : null;
-        if(increase_Node !=null){
-            increase_Node.values = k;
-            swap(nodes, 1, x);
-            heappfy(nodes, 1);
-        }
-        return increase_Node;
     }
     public static Node delete(Node[] nodes, int x){
         Node deleteNode = x<=count ? nodes[x] : null;
