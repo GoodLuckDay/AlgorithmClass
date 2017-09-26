@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class QuickSort {
-    static final int file_size = 100000;
+    static final int file_size = 1000000;
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("./Best/"+file_size+".txt"));
