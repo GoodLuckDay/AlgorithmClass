@@ -2,13 +2,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Paths;
 
 public class HeapSort {
     static int count = 0;
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("data_heap.txt"));
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("data_heap.txt").toString()));
         BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
-        Node[] nodes = new Node[101];
+        Node[] nodes = new Node[2001];
         String str = null;
         while((str = bufferedReader.readLine()) != null){
             String[] line = str.split(", ");
@@ -61,7 +63,7 @@ public class HeapSort {
                 }
             }
             catch (NumberFormatException error){
-                System.out.println("\n**** (1~6) 사이에 값을 입력해 주세요! ****");
+                System.out.println("\n**** 숫자를 입력해 주세요 !! ****");
             }
         }
     }

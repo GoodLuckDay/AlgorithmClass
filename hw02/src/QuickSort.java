@@ -5,7 +5,7 @@ public class QuickSort {
     static final int file_size = 1000000;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Best/"+file_size+".txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Random/"+file_size+".txt"));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./201302482_quick"));
         int[] array = new int[file_size];
         int count = 0;
