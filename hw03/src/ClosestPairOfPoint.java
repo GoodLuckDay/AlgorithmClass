@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.nio.file.Paths;
 
 public class ClosestPairOfPoint {
-    static final int file_size = 100;
+    static final int file_size = 10000;
     public static void main(String[] args) throws IOException {
         Point[] array = new Point[file_size];
         BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./closest dataSet/closest_"+file_size+".in").toString()));
+//        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./closest dataSet/closest_data.txt").toString()));
         int count = 0;
         String str;
         while((str = bufferedReader.readLine()) != null){
@@ -28,7 +29,7 @@ public class ClosestPairOfPoint {
 
         double leftMin = ClosestPair(array, left, mid);
         double rightMin = ClosestPair(array,mid+1 ,right);
-        double delta = Double.min(leftMin, rightMin);
+        double delta = Math.min(leftMin, rightMin);
 
         Point[] separatedPoint = new Point[size];
         int separatedCount = 0;
@@ -45,7 +46,8 @@ public class ClosestPairOfPoint {
             for(int j=i+1; j<=separatedCount; j++){
                 double distance = getDistance(array[i], array[j]);
                 if( distance < delta){
-                    delta = Double.min(delta,distance);
+                    delta = Math.min(delta,distance);
+                    break;
                 }
             }
         }
@@ -80,16 +82,16 @@ public class ClosestPairOfPoint {
         }
     }
 
-    private static int partition(Point[] array, int left, int right, boolean isYvalue) {
+    private static int partition(Point[] array, int left, int right, boolean y_coordinate) {
         int i = left;
         int j = right-1;
-        double pivot = (isYvalue ? array[i].yPosition : array[i].xPosition);
+        double pivot = (y_coordinate ? array[right].yPosition : array[right].xPosition);
 
         while(i <= j){
-            if((isYvalue ? array[i].yPosition : array[i].xPosition) < pivot){
+            if((y_coordinate ? array[i].yPosition : array[i].xPosition) < pivot){
                 i++;
             }
-            else if((isYvalue ? array[i].yPosition : array[i].xPosition) > pivot){
+            else if((y_coordinate ? array[j].yPosition : array[j].xPosition) > pivot){
                 j--;
             }
             else{
