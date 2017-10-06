@@ -1,2 +1,2 @@
 # AlgorithmClass
-Give Me Star
+Give Me a Star
