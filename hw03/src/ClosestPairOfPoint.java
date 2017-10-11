@@ -35,16 +35,16 @@ public class ClosestPairOfPoint {
         int separatedCount = 0;
 
         for(int i=left; i<=right; i++){
-            if(array[i].xPosition - array[mid].xPosition <= delta){
+            if(Math.abs(array[i].xPosition - array[mid].xPosition) <= delta){
                 separatedPoint[separatedCount++] = array[i];
             }
         }
 
         QuickSort(separatedPoint, 0, separatedCount-1, true);
 
-        for(int i=0; i<separatedCount; i++){
-            for(int j=i+1; j<=separatedCount; j++){
-                double distance = getDistance(array[i], array[j]);
+        for(int i=0; i<separatedCount-1; i++){
+            for(int j=i+1; j<i+12 && j < separatedCount; j++){
+                double distance = getDistance(separatedPoint[i], separatedPoint[j]);
                 if( distance < delta){
                     delta = Math.min(delta,distance);
                     break;
