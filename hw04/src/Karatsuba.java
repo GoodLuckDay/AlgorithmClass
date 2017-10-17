@@ -30,11 +30,10 @@ public class Karatsuba {
         return z2.multiply(new BigInteger(String.valueOf((long)Math.pow(10,2*m)))).add(z1.multiply(new BigInteger(String.valueOf((long)Math.pow(10,m))))).add(z0);
     }
 
-    private static int digitCount(BigInteger a) {
-        long number = a.longValue();
+    private static int digitCount(BigInteger number) {
         int count = 0;
-        while(number != 0){
-            number /= 10;
+        while(number.intValue() != 0){
+            number = number.divide(new BigInteger("10"));
             count++;
         }
         return count;

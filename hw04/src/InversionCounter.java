@@ -39,9 +39,10 @@ public class InversionCounter {
         int indexA = left;
         int indexB = mid+1;
         int k = left;
-        for(int i=left; i<=right; i++){
-            heler[i] = array[i];
-        }
+//        for(int i=left; i<=right; i++){
+//            heler[i] = array[i];
+//        }
+        System.arraycopy(array, left , heler, left, right-left+1);
         while(indexA <= mid && indexB <= right){
             if(heler[indexA] > heler[indexB]){
                 inversion_count = inversion_count + (mid - indexA+1);
