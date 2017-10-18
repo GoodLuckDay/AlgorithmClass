@@ -11,7 +11,7 @@ public class InversionCounter {
     static int[] array = new int[file_size];
     static int[] heler = new int[file_size];
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./dataset04/data05_inversion_01.txt").toString()));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./dataset04/data05_inversion_04.txt").toString()));
         StringTokenizer stringTokenizer;
         String str = null;
         while((str = bufferedReader.readLine()) != null) {

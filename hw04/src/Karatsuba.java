@@ -6,11 +6,9 @@ import java.nio.file.Paths;
 
 public class Karatsuba {
     public static void main(String[] args) throws IOException {
-//        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./dataset04/data05_karatsuba.txt").toString()));
-//        BigInteger A = new BigInteger(bufferedReader.readLine());
-//        BigInteger B = new BigInteger(bufferedReader.readLine());
-        BigInteger A = new BigInteger("12345678");
-        BigInteger B = new BigInteger("65432187");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./dataset04/data05_karatsuba.txt").toString()));
+        BigInteger A = new BigInteger(bufferedReader.readLine());
+        BigInteger B = new BigInteger(bufferedReader.readLine());
         System.out.println(calculate_karatsuba(A, B));
     }
 
@@ -31,12 +29,4 @@ public class Karatsuba {
         return z2.multiply(new BigInteger(String.valueOf((long)Math.pow(10,2*m)))).add(z1.multiply(new BigInteger(String.valueOf((long)Math.pow(10,m))))).add(z0);
     }
 
-//    private static int digitCount(BigInteger number) {
-//        int count = 0;
-//        while(number.intValue() != 0){
-//            number = number.divide(new BigInteger("10"));
-//            count++;
-//        }
-//        return count;
-//    }
 }
