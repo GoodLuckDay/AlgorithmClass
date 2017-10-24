@@ -5,38 +5,42 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 
 public class Huffman {
-    static HashMap<String, Integer> table = new HashMap<>();
-    static HashMap<String, String> encodingTable = new HashMap<>();
+    static HashMap<String, Integer> frequecyTable = new HashMap<>();
+    static HashMap<String, String> huffmanCode = new HashMap<>();
     static MinHeap minHeap = new MinHeap();
     static Node[] nodes;
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./data06_huffman.txt").toString()));
         String[] strings = bufferedReader.readLine().split("");
 
-        makeTable(strings);
+        countCharacters(strings);
         makeHuffmanTree();
-        makeEncodeingTable(nodes[1], "");
-        for(String key : encodingTable.keySet()){
-            System.out.println(key+","+encodingTable.get(key));
-        }
+        makeHuffmanCode(nodes[1], "");
+        printHuffmanCode();
 
     }
 
-    private static void makeEncodeingTable(Node node, String str){
+    private static void printHuffmanCode() {
+        for(String key : huffmanCode.keySet()){
+            System.out.println(key+","+ huffmanCode.get(key));
+        }
+    }
+
+    private static void makeHuffmanCode(Node node, String str){
         if(!node.character.equals("")){
-            encodingTable.put(node.character, str);
+            huffmanCode.put(node.character, str);
         }
         else {
-            makeEncodeingTable(node.leftNode, str+"0");
-            makeEncodeingTable(node.rightNode, str+"1");
+            makeHuffmanCode(node.leftNode, str+"0");
+            makeHuffmanCode(node.rightNode, str+"1");
         }
     }
 
     private static void makeHuffmanTree() {
-        nodes = new Node[table.keySet().size()+1];
+        nodes = new Node[frequecyTable.keySet().size()+1];
 
-        for(String key : table.keySet()){
-            minHeap.insert(nodes, new Node(table.get(key), key));
+        for(String key : frequecyTable.keySet()){
+            minHeap.insert(nodes, new Node(frequecyTable.get(key), key));
         }
 
         int n = minHeap.count;
@@ -49,14 +53,14 @@ public class Huffman {
         }
     }
 
-    private static void makeTable(String[] strings) {
+    private static void countCharacters(String[] strings) {
         for(int i=0; i<strings.length; i++){
             String temp = strings[i];
-            if(table.containsKey(temp)){
-                table.replace(temp, table.get(temp)+1);
+            if(frequecyTable.containsKey(temp)){
+                frequecyTable.replace(temp, frequecyTable.get(temp)+1);
             }
             else{
-                table.put(temp,1);
+                frequecyTable.put(temp,1);
             }
         }
     }
