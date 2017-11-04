@@ -5,8 +5,8 @@ public class binary_Insertion_sorting {
     static final int file_size = 10000;
     static int[] array = new int[file_size];
     public static void main(String[] args) throws IOException {
-//        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Random/"+file_size+".txt"));
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("input.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("./Random/"+file_size+".txt"));
+//        BufferedReader bufferedReader = new BufferedReader(new FileReader("input.txt"));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("201302482_output.txt"));
         int index = 0;
         String line = null;
@@ -48,9 +48,6 @@ public class binary_Insertion_sorting {
             return array[left] < value ? left+1 : left;
         }
         int mid = (left + right) / 2;
-        if(array[mid] == value){
-            return mid+1;
-        }
         return array[mid] < value ? binary_search(mid+1,right,value) : binary_search(left,mid,value);
     }
 }

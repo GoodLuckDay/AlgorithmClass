@@ -9,6 +9,7 @@ public class Huffman {
     static HashMap<String, String> huffmanCode = new HashMap<>();
     static MinHeap minHeap = new MinHeap();
     static Node[] nodes;
+
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(Paths.get("./data06_huffman.txt").toString()));
         String[] strings = bufferedReader.readLine().split("");

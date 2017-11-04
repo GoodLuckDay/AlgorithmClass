@@ -30,7 +30,7 @@ public class QuickSort {
     }
 
     public static void quickSort(int[] A, int left, int right){
-        if(left <= right){
+        if(left < right){
             int pivot = partition(A,left,right);
             quickSort(A, left, pivot-1);
             quickSort(A, pivot+1, right);
