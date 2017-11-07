@@ -1,5 +1,4 @@
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class Prim {
@@ -13,24 +12,9 @@ public class Prim {
     static final int STARTVERTEX = 0;
     static boolean[] visit = new boolean[VERTEXSIZE];
     static Edge[] graph = new Edge[VERTEXSIZE];
-    static HashMap<Integer, String> indexConverter = new HashMap<>();
     public static void main(String[] args) {
         initGraph();
-        initIndexConverter();
         minimumSpanningTree();
-    }
-
-    private static void initIndexConverter() {
-        indexConverter.put(-1, " ");
-        indexConverter.put(0, "a");
-        indexConverter.put(1, "b");
-        indexConverter.put(2, "c");
-        indexConverter.put(3, "d");
-        indexConverter.put(4, "e");
-        indexConverter.put(5, "f");
-        indexConverter.put(6, "g");
-        indexConverter.put(7, "h");
-        indexConverter.put(8, "i");
     }
 
     private static void minimumSpanningTree() {
@@ -54,7 +38,7 @@ public class Prim {
     }
 
     private static void printEdge(int source, int dest, int weight){
-        System.out.println("w<"+indexConverter.get(source)+", "+indexConverter.get(dest)+"> = "+weight);
+        System.out.println("w<"+(char)(source + 'a')+", "+(char)(dest + 'a')+"> = "+weight);
     }
     private static void initGraph() {
         graph[0] = new Edge(1, graph[0], 4);
