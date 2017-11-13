@@ -38,7 +38,7 @@ public class Prim {
     }
 
     private static void printEdge(int source, int dest, int weight){
-        System.out.println("w< "+(char)(source + 'a')+", "+(char)(dest + 'a')+"> = "+weight);
+        System.out.println("w<"+(char)(source + 'a')+", "+(char)(dest + 'a')+"> = "+weight);
     }
     private static void initGraph() {
         graph[0] = new PrimNode(1, graph[0], 4);
