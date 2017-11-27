@@ -115,9 +115,6 @@ public class SequenceAlignment {
         string1 = bufferedReader.readLine();
         System.out.print("string2 : ");
         string2 = bufferedReader.readLine();
-//        string1 = "CTGACCTACCT";
-//        string2 = "CCTGACTACAT";
-//        System.out.println();
         m = string1.length()+1;
         n = string2.length()+1;
         array = new int[m][n];
