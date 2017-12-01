@@ -16,16 +16,22 @@ public class SequenceAlignment {
     static int[] y_array;
 
     public static void main(String[] args) throws IOException {
-//        sentence1 = bufferedReader.readLine();
-//        sentence2 = bufferedReader.readLine();
+        System.out.print("string1 : ");
+        sentence2 = bufferedReader.readLine();
+        System.out.print("string2 : ");
+        sentence1 = bufferedReader.readLine();
 //        align(sentence1, sentence2);
-        String y = "ocurrance";
-        String x = "occurrence";
+//        String y = "ocurrance";
+//        String x = "occurrence";
 //        String y = "CTGACCTACCT";
 //        String x = "CCTGACTACAT";
 //        String y = "CAGTTGCAA";
 //        String x = "AAGGTATGAATC";
-        align(x, y, 0, 0);
+        if(sentence2.length() >=10 || sentence1.length() >=10){
+            System.out.println("10자리 이하의 문자열을 입력해 주세요");
+            return ;
+        }
+        align(sentence2, sentence1, 0, 0);
         for (Integer integer : arrowPath.keySet()) {
             System.out.println(integer + " " + arrowPath.get(integer));
         }

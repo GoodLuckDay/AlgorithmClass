@@ -1,56 +1,67 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
+
 public class BellmanFord {
-    static Scanner scanner = new Scanner(System.in);
+    static final int MAX = 10000000;
     static int[][] graph;
-    static int[][] solve;
-//    static int[] solve;
+    static int[] solve;
+    static int start;
+    static int end;
     static int vertex;
-    static int start, end;
     static int edge;
-    public static void main(String[] args){
+
+    public static void main(String[] args) throws IOException {
         initGraph();
         shortestPath();
-        int cost = solve[vertex-1][start];
-        System.out.println(cost >= 0 ? cost : "Negative cycle");
     }
 
     private static void shortestPath() {
-        for(int i=0; i<vertex; i++){
-            solve[0][i] = 10000;
+        solve[start] = 0;
+        for (int i = 0; i < vertex; i++) {
+            solve[i] = i == start ? 0 : MAX;
         }
-        solve[0][end] = 0;
 
-        for(int i=1; i<vertex; i++){
-            for(int j=0; j<vertex; j++){
-                solve[i][j] = solve[i-1][j];
-            }
-
-
-            for(int j=0; j<vertex; j++){
-                for(int k=0; k<vertex; k++){
-                    if(graph[j][k] != 0){
-                        solve[i][j] = Integer.min(solve[i][j], solve[i-1][k] + graph[j][k]);
+        for (int i = 1; i < vertex - 1; i++) {
+            for (int j = 0; j < vertex; j++) {
+                for (int k = 0; k < vertex; k++) {
+                    if (graph[j][k] != 0 && solve[k] > solve[j] + graph[j][k]) {
+                        solve[k] = solve[j] + graph[j][k];
                     }
                 }
             }
         }
-    }
 
-
-    private static void initGraph() {
-        vertex = scanner.nextInt();
-        start = scanner.nextInt();
-        end = scanner.nextInt();
-        edge = scanner.nextInt();
-        graph = new int[vertex][vertex];
-        solve = new int[vertex][vertex];
-        for(int i=0; i<edge; i++){
-            int src = scanner.nextInt();
-            int dest = scanner.nextInt();
-            int weight = scanner.nextInt();
-            graph[src][dest] = weight;
+        for (int i = 0; i < vertex; i++) {
+            for (int j = 0; j < vertex; j++) {
+                if (graph[i][j] != 0 && solve[j] > solve[i] + graph[i][j]) {
+                    System.out.println(solve[j]);
+                    return;
+                }
+            }
         }
 
-        shortestPath();
+        System.out.println(solve[end]);
+
+    }
+
+    private static void initGraph() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("./data10.txt"));
+        vertex = Integer.parseInt(bufferedReader.readLine());
+        String[] temp = bufferedReader.readLine().split(" ");
+        StringTokenizer stringTokenizer;
+        start = Integer.parseInt(temp[0]);
+        end = Integer.parseInt(temp[1]);
+        edge = Integer.parseInt(bufferedReader.readLine());
+        graph = new int[vertex][vertex];
+        solve = new int[vertex];
+        for (int i = 0; i < edge; i++) {
+            temp = bufferedReader.readLine().split(" ");
+            int src = Integer.parseInt(temp[0]);
+            int dest = Integer.parseInt(temp[1]);
+            int weight = Integer.parseInt(temp[2]);
+            graph[src][dest] = weight;
+        }
     }
 }
