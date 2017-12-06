@@ -9,6 +9,10 @@
       <module fileurl="file://$PROJECT_DIR$/hw04/hw04.iml" filepath="$PROJECT_DIR$/hw04/hw04.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw05/hw05.iml" filepath="$PROJECT_DIR$/hw05/hw05.iml" />
       <module fileurl="file://$PROJECT_DIR$/hw06/hw06.iml" filepath="$PROJECT_DIR$/hw06/hw06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw07/hw07.iml" filepath="$PROJECT_DIR$/hw07/hw07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw08/hw08.iml" filepath="$PROJECT_DIR$/hw08/hw08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw09/hw09.iml" filepath="$PROJECT_DIR$/hw09/hw09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw10/hw10.iml" filepath="$PROJECT_DIR$/hw10/hw10.iml" />
     </modules>
   </component>
 </project>
