@@ -1,4 +1,4 @@
-# AlgorithmClass
+# *2017 Algorithm Class*
 
 ## HW 01 ##
 > * Binary Insertion sort <br>
@@ -34,3 +34,10 @@
 ## HW 09 ##
 > * Sequence Alignment linear space<br>
 > * Belman Ford <br>
+
+## HW 10 ##
+> * Optimal Binary Search Tree<br>
+
+## HW 11 ##
+> * BFS <br>
+> * DFS <br> 
