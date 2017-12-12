@@ -9,10 +9,11 @@ public class DFS {
     static int[] completedTime = new int[vertexCount];
     static int[] parentNode = new int[vertexCount];
     static int timeCount = 1;
+
     public static void main(String[] args) {
         initDFS();
-        for(int i=0; i<vertexCount; i++){
-            if(!visited[i]) {
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited[i]) {
                 findingTime[i] = timeCount++;
                 solveDFS(i);
                 completedTime[i] = timeCount++;
@@ -22,24 +23,23 @@ public class DFS {
     }
 
     private static void printResult() {
-        System.out.println("시작 노드 : "+ (startVertex+1));
-        for(int i=0; i<vertexCount; i++){
-            if(i != startVertex) {
-                System.out.println(i+1 + "번째 Node의 부모노드 : " + (parentNode[i]+1));
-                System.out.println(i+1 + "번째 발견 시간 : " + findingTime[i]);
-                System.out.println(i+1 + "번째 탐색 완료 시간 : " + completedTime[i]);
-            }
+        for (int i = 0; i < vertexCount; i++) {
+
+            System.out.println(i + 1 + "번째 Node의 부모노드 : " + (parentNode[i] + 1));
+            System.out.println(i + 1 + "번째 발견 시간 : " + findingTime[i]);
+            System.out.println(i + 1 + "번째 탐색 완료 시간 : " + completedTime[i]);
+
         }
     }
 
     private static void solveDFS(int startVertex) {
-        if(visited[startVertex]){
-            return ;
+        if (visited[startVertex]) {
+            return;
         }
         visited[startVertex] = true;
-        for(Node node=graph[startVertex];node != null; node=node.next){
+        for (Node node = graph[startVertex]; node != null; node = node.next) {
             int destVertex = node.vertex;
-            if(!visited[destVertex]){
+            if (!visited[destVertex]) {
                 findingTime[destVertex] = timeCount++;
                 parentNode[destVertex] = startVertex;
                 solveDFS(destVertex);
@@ -62,11 +62,11 @@ public class DFS {
         graph[5] = new Node(5, graph[5]);
     }
 
-    static class Node{
+    static class Node {
         int vertex;
         Node next;
 
-        public Node(int vertex, Node next){
+        public Node(int vertex, Node next) {
             this.vertex = vertex;
             this.next = next;
         }

@@ -10,6 +10,7 @@ public class BFS {
     static boolean[] visited = new boolean[vertexCount];
     static int[] cost = new int[vertexCount];
     static int[] parentNode = new int[vertexCount];
+
     public static void main(String[] args) {
         initBFS();
         solveBFS(startVertex);
